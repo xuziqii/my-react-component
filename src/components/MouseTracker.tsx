@@ -5,7 +5,6 @@ const MouseTracker:React.FC = () => {
 
   useEffect(() => {
     
-    console.log('before addEventListener', position.x)
     const onMouseClick = (event: MouseEvent) => {
       setPosition({
         x: event.clientX,
@@ -14,12 +13,10 @@ const MouseTracker:React.FC = () => {
     }
     document.addEventListener("click", onMouseClick)
     return () => {
-      console.log('before removeEventListener', position.x)
       document.removeEventListener("click", onMouseClick)
     }
-  })
+  }, [])
 
-  console.log('before render', position.x)
   return <p>x: { position.x }, y: { position.y }</p>
 }
 
