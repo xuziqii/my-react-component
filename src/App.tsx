@@ -6,14 +6,15 @@ import Hello from './components/Hello'
 import LikeButton from './components/LikeButton'
 import MouseTracker from './components/MouseTracker'
 
+import useMouseMove from './hooks/useMouseMove'
+
 function App() {
+  const position = useMouseMove()
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <p>x: { position.x }, y: { position.y }</p>
         <Hello/>
         <LikeButton />
         <MouseTracker />
